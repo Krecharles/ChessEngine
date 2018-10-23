@@ -1,10 +1,11 @@
 from util import *
 from pieces import *
+import copy
 
 
 class Engine(object):
 
-    def __init__(self, fen="default fen"):
+    def __init__(self):
         self.board = Board()
 
     def setFEN(self, fen):
@@ -38,15 +39,13 @@ class Board(object):
 
     def __init__(self):
         self.move_history = []
-        # self.piece_position = [0 for _ in range(64)]
-        # self.
 
     def get_heuristic_value(self):
         pass
 
     def set_position(self, position):
         print(position)
-        self.position = [0] * 64
+        self.position = [Piece.ID_PIECE_NONE] * 64
         for row_index, row in enumerate(position.split("/")):
             empty_squares = 0
             for column_index, char in enumerate(row):
@@ -58,17 +57,16 @@ class Board(object):
                 self.position[index] = id
 
     def set_FEN(self, fen):
-        # position, player
-        # _color, castling_rights, en_passant = fen.split(" ")
+        # position, player_color, castling_rights, en_passant = fen.split(" ")
         data = fen.split(" ")
         self.set_position(data[0])
-        # self.castling_rights = {
-        #     Color.WHITE: [],
-        #     Color.BLACK:
-        # }
-        self.print()
-
-        # self.player_color = player_color
+        self.player_color = Color.WHITE if data[1] == "w" else Color.BLACK
+        self.castling_rights = {
+            Color.WHITE: [King.char.capitalize() in data[2], Queen.char.capitalize() in data[2]],
+            Color.BLACK: [King.char in data[2], Queen.char in data[2]]
+        }
+        # -1 means no en_passant possible, else the id of the tile is returned
+        self.en_passant = data[3] if data[3] != "-" else -1
 
     def print(self):
         out = list(map(lambda x: Piece.get_char_for_id(x), self.position))
@@ -76,13 +74,21 @@ class Board(object):
             print(out[i * 8:(i + 1) * 8])
 
     def get_legal_moves(self):
-
         for piece in self.all_pieces:
             if piece.color == self.player:
                 pass
 
-    def make_move(self):
-        """perform a move on the board, ONLY CALLED BY MOVE CLASS"""
+    def is_empty(self, tile):
+        return self.position[tile] == Piece.ID_PIECE_NONE
+
+    def make_move(self, tile_from, tile_to):
+        """perform a move on the board, non mutable so returns new board"""
+        if self.is_empty(tile_from):
+            return print("illegal move")
+        new_board = copy.deepcopy(self)
+        piece = Piece.get_piece_class_of_id(self.position[tile_from])
+        piece.move(new_board, tile_from, tile_to)
+        return new_board
 
 
 class BaseMove(object):
@@ -97,5 +103,7 @@ class BaseMove(object):
 if __name__ == '__main__':
     board = Board()
     board.set_FEN(DEFAULT_FEN)
+    board.print()
     print("-----")
-    board.set_FEN("8/8/8/2k5/4K3/8/8/8")
+    new_board = board.make_move(convert_tile_to_id("a2"), convert_tile_to_id("a3"))
+    new_board.print()

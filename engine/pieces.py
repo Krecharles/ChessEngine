@@ -1,8 +1,12 @@
+from util import *
+
+
 class Piece(object):
     """
     Base Piece
     """
     ALL_PIECE_CLASSES = []
+    ID_PIECE_NONE = 0
 
     def get_id_for_char(char):
         for piece in Piece.ALL_PIECE_CLASSES:
@@ -19,15 +23,37 @@ class Piece(object):
                 return piece.char.upper()
         return id
 
+    def get_piece_class_of_char(char):
+        return list(filter(lambda klass: klass.char == char.lower(), Piece.ALL_PIECE_CLASSES))[0]
+
+    def get_piece_class_of_id(id):
+        """id != 0"""
+        return list(filter(lambda klass: klass.ID_WHITE == id or klass.ID_BLACK == id, Piece.ALL_PIECE_CLASSES))
+
     def get_legal_moves(self):
         """ Returns a list of every legal move that can be made by moving this piece """
         pass
+
+    def swap(board, tile_from, tile_to):
+        board.position[tile_to] = board.position[tile_from]
+        board.position[tile_from] = Piece.ID_PIECE_NONE
 
 
 class Pawn(Piece):
     char = "p"
     ID_WHITE = 1
     ID_BLACK = 7
+
+    def move(board, tile_from, tile_to):
+        # todo check for right color?
+        if tile_to == tile_from + 8 and board.is_empty(tile_to):
+            # white moves one up
+            Piece.swap(board, tile_from, tile_to)
+            return
+
+        print("Illegal move")
+        # todo raise error
+        # todo check other moves by pawn (en_passant etc)
 
 
 class Rook(Piece):
