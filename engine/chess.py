@@ -21,7 +21,7 @@ class Engine(object):
             return board.get_heuristic_value()
         if maximizing_player == Color.WHITE:
             value = -(2 ** 32)
-            for move in board.get_legal_moves()
+            for move in board.get_legal_moves():
                 new_board = move.execute(board)
                 new_value = self.min_max(new_board, depth - 1, Color.BLACK)
                 value = max(value, new_value)
