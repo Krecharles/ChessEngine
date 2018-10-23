@@ -1,38 +1,35 @@
 import server_communication as sc
 from engine import stockfish
 import time
-import sys
+import datetime
 
 
-def make_move():
-    position = sc.get_game_position()
-    print(position)
-    stockfish.set_fen_position(position)
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
+
+
+def make_move(game):
+    position = game["fen"]
+    stockfish.set_fen_position(
+        position if position is not None else "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1")
     best_move = stockfish.get_best_move()
-    print(best_move)
-    sc.make_move(best_move)
-
-
-def can_move():
-    return sc.get_game_json() is not None
+    sc.make_move(game, best_move)
 
 
 if __name__ == '__main__':
 
-    sc.game_id = sys.argv[1]
-    sc.is_black = 0 if sys.argv[2] == "white" else 1
-    print("starting game with id {}".format(sc.game_id))
-
-    last_activity = "0"
     while True:
-        print("looping")
-        new_activity = sc.get_last_activity()
-        if last_activity == new_activity:
-            time.sleep(5)
-            continue
-        print("the game was updated")
-        last_activity = new_activity
-
-        if can_move():
-            make_move()
-            time.sleep(10)
+        print(bcolors.OKGREEN + "[LOOPING]: {}".format(datetime.datetime.now()) + bcolors.ENDC)
+        for game in sc.get_all_games():
+            if game["isMyTurnToMove"]:
+                make_move(game)
+                continue
+        # sc.create_game()
+        time.sleep(10)
