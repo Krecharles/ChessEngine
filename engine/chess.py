@@ -44,34 +44,47 @@ class Board(object):
         pass
 
     def set_position(self, position):
-        print(position)
         self.position = [Piece.ID_PIECE_NONE] * 64
-        for row_index, row in enumerate(position.split("/")):
+        for row_index, row in enumerate(position.split("/")[::-1]):
             empty_squares = 0
             for column_index, char in enumerate(row):
                 if char.isdigit():
-                    empty_squares += int(char)
+                    empty_squares += int(char) - 1
                     continue
                 id = Piece.get_id_for_char(char)
                 index = column_index + 8 * row_index + empty_squares
                 self.position[index] = id
 
     def set_FEN(self, fen):
-        # position, player_color, castling_rights, en_passant = fen.split(" ")
         data = fen.split(" ")
+
         self.set_position(data[0])
+
         self.player_color = Color.WHITE if data[1] == "w" else Color.BLACK
+
         self.castling_rights = {
-            Color.WHITE: [King.char.capitalize() in data[2], Queen.char.capitalize() in data[2]],
+            Color.WHITE: [King.char.capitalize() in data[2],
+                          Queen.char.capitalize() in data[2]],
             Color.BLACK: [King.char in data[2], Queen.char in data[2]]
         }
+
         # -1 means no en_passant possible, else the id of the tile is returned
         self.en_passant = data[3] if data[3] != "-" else -1
+        self.print()
+
+    def __str__(self):
+        positions = list(map(lambda x: Piece.get_char_for_id(x), self.position))
+        out = ""
+        for i in range(8)[::-1]:
+            out += (str(positions[i * 8:(i + 1) * 8]).replace("'", "")
+                  .replace(",", "").replace("[", "").replace("]", ""))
+            out += "\n" if i is not 0 else ""
+        return out
 
     def print(self):
-        out = list(map(lambda x: Piece.get_char_for_id(x), self.position))
-        for i in range(8):
-            print(out[i * 8:(i + 1) * 8])
+        print("---------------")
+        print(str(self))
+        print("---------------")
 
     def get_legal_moves(self):
         for piece in self.all_pieces:
@@ -81,13 +94,14 @@ class Board(object):
     def is_empty(self, tile):
         return self.position[tile] == Piece.ID_PIECE_NONE
 
-    def make_move(self, tile_from, tile_to):
+    def make_move(self, move):
         """perform a move on the board, non mutable so returns new board"""
-        if self.is_empty(tile_from):
+        if self.is_empty(move.tile_from):
             return print("illegal move")
         new_board = copy.deepcopy(self)
-        piece = Piece.get_piece_class_of_id(self.position[tile_from])
-        piece.move(new_board, tile_from, tile_to)
+        piece = Piece.get_piece_class_of_id(self.position[move.tile_from])
+        piece.move(new_board, move)
+        self.print() # for debugging purposes
         return new_board
 
 
@@ -103,7 +117,5 @@ class BaseMove(object):
 if __name__ == '__main__':
     board = Board()
     board.set_FEN(DEFAULT_FEN)
-    board.print()
-    print("-----")
-    new_board = board.make_move(convert_tile_to_id("a2"), convert_tile_to_id("a3"))
-    new_board.print()
+    move = Move.from_notation("a2a3")
+    new_board = board.make_move(move)

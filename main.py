@@ -1,5 +1,5 @@
 import server_communication as sc
-from engine import stockfish
+from sf import stockfish
 import time
 import datetime
 
