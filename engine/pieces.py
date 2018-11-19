@@ -34,11 +34,12 @@ class Piece(object):
 
     @staticmethod
     def get_piece_class_of_id(id):
-        if id == 0:
-            return Piece
-        return list(
-            filter(lambda klass: klass.ID_WHITE == id or klass.ID_BLACK == id,
-                   Piece.ALL_PIECE_CLASSES))[0]
+        return Piece.OPTIMIZED_PIECE_CLASSES[id]
+        # if id == 0:
+        #     return Piece
+        # return list(
+        #     filter(lambda klass: klass.ID_WHITE == id or klass.ID_BLACK == id,
+        #            Piece.ALL_PIECE_CLASSES))[0]
 
     @staticmethod
     def get_legal_moves(board, position):
@@ -61,7 +62,6 @@ class Piece(object):
             return
 
         Piece.swap(board, move)
-
 
 class Move:
 
@@ -373,3 +373,5 @@ class King(Piece):
 
 
 Piece.ALL_PIECE_CLASSES = [Pawn, Rook, Knight, Bishop, Queen, King]
+Piece.OPTIMIZED_PIECE_CLASSES = [Piece, Pawn, Rook, Knight, Bishop, Queen, King,
+                                 Pawn, Rook, Knight, Bishop, Queen, King]

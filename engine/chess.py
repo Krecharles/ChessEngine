@@ -2,7 +2,6 @@ from util import *
 from pieces import *
 import copy
 
-
 class Engine(object):
 
     def __init__(self):
@@ -16,23 +15,6 @@ class Engine(object):
         score, move = self.min_max(self.board, move_depth, self.player)
         return move
 
-    # def min_max(self, board, depth, maximizing_player):
-    #     if depth == 0:  # or board.is_mated():
-    #         return board.get_heuristic_value()
-    #     if maximizing_player == Color.WHITE:
-    #         value = -(2 ** 32)
-    #         for move in board.get_legal_moves():
-    #             new_board = board.make_move(move)
-    #             new_value = self.min_max(new_board, depth - 1, Color.BLACK)
-    #             value = max(value, new_value)
-    #     else:
-    #         value = 2 ** 32
-    #         for move in board.get_legal_moves():
-    #             new_board = move.execute(board)
-    #             new_value = self.min_max(new_board, depth - 1, Color.WHITE)
-    #             value = min(value, new_value)
-    #     return value
-
     def min_max(self, board, depth, maximizing_player):
         if depth == 0:  # or board.is_mated():
             return board.get_heuristic_value(), None
@@ -40,7 +22,7 @@ class Engine(object):
         if maximizing_player == Color.WHITE:
             value = -(2 ** 32)
             for move in board.get_legal_moves():
-                new_board = board.make_move(move)
+                new_board = board.make_legal_move(move)
                 new_value, _ = self.min_max(new_board, depth - 1, Color.BLACK)
                 if new_value > value:
                     value = new_value
@@ -48,7 +30,7 @@ class Engine(object):
         else:
             value = 2 ** 32
             for move in board.get_legal_moves():
-                new_board = board.make_move(move)
+                new_board = board.make_legal_move(move)
                 new_value, _ = self.min_max(new_board, depth - 1, Color.WHITE)
                 if new_value < value:
                     value = new_value
@@ -59,14 +41,13 @@ class Engine(object):
 
 class Board(object):
 
-    def __init__(self):
-        self.move_history = []
-
     def get_heuristic_value(self):
         # returns the sum of all the positive and negative heuristic values,
         # is positive if white is winning and negative if black is winning
         out = 0
         for id in self.position:
+            if id == Piece.ID_PIECE_NONE:
+                continue
             val = Piece.get_piece_class_of_id(id).HEURISTIC_VALUE
             is_white = id < 7
             out += val if is_white else -val
@@ -118,6 +99,8 @@ class Board(object):
         print("------------------------------")
 
     def get_legal_moves(self):
+        global calls
+        calls += 1
         all_moves = []
         for pos, id in enumerate(self.position):
             if self.get_color_at(pos) == self.player_color:
@@ -135,6 +118,14 @@ class Board(object):
             return Color.WHITE
         return Color.BLACK
 
+    def make_legal_move(self, move):
+        """assumes the given move is legal"""
+        new_board = self.copy()
+        piece = Piece.get_piece_class_of_id(self.position[move.tile_from])
+        piece.swap(new_board, move)
+        return new_board
+
+
     def make_move(self, move):
         """perform a move on the board, non mutable so returns new board"""
         if self.is_empty(move.tile_from):
@@ -144,6 +135,17 @@ class Board(object):
         piece = Piece.get_piece_class_of_id(self.position[move.tile_from])
         piece.move(new_board, move)
         return new_board
+
+    def copy(self):
+        b = Board()
+        b.position = [x for x in self.position]
+        # b.castling_rights = copy.deepcopy(self.castling_rights)
+        b.en_passant = self.en_passant
+        b.player_color = self.player_color
+        return b
+
+
+calls = 0
 
 
 def move(_board, move_str):
@@ -174,4 +176,5 @@ def play_alone():
 if __name__ == '__main__':
     engine = Engine()
     engine.setFEN(DEFAULT_FEN)
-    print(engine.get_best_move(4))
+    print(engine.get_best_move(3))
+    print(calls)
