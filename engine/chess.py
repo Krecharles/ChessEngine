@@ -2,6 +2,7 @@ from util import *
 from pieces import *
 import copy
 
+
 class Engine(object):
 
     def __init__(self):
@@ -39,7 +40,7 @@ class Engine(object):
         return value, best_move
 
 
-class Board(object):
+class Board:
 
     def get_heuristic_value(self):
         # returns the sum of all the positive and negative heuristic values,
@@ -99,13 +100,15 @@ class Board(object):
         print("------------------------------")
 
     def get_legal_moves(self):
-        global calls
-        calls += 1
         all_moves = []
         for pos, id in enumerate(self.position):
+            if id == Piece.ID_PIECE_NONE:
+                continue
+            # it does not matter which if statement is used performance wise
+            # if (id < 7) == (self.player_color == Color.WHITE):
             if self.get_color_at(pos) == self.player_color:
                 piece = Piece.get_piece_class_of_id(id)
-                all_moves += piece.get_legal_moves(self, pos)
+                all_moves.extend(piece.get_legal_moves(self, pos))
         return all_moves
 
     def is_empty(self, tile):
@@ -124,7 +127,6 @@ class Board(object):
         piece = Piece.get_piece_class_of_id(self.position[move.tile_from])
         piece.swap(new_board, move)
         return new_board
-
 
     def make_move(self, move):
         """perform a move on the board, non mutable so returns new board"""
@@ -145,13 +147,11 @@ class Board(object):
         return b
 
 
-calls = 0
-
-
 def move(_board, move_str):
     move = Move.from_notation(move_str)
     new_board = _board.make_move(move)
     return new_board
+
 
 def play_alone():
     board = Board()

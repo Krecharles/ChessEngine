@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f717c37c-2133-41af-ab90-21f451cd9a6a" name="Default Changelist" comment="Version 2&#10;Made some easy optimizations">
-      <change afterPath="$PROJECT_DIR$/profiler.py" afterDir="false" />
+    <list default="true" id="f717c37c-2133-41af-ab90-21f451cd9a6a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/deepProfiler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/benchmarker.py" beforeDir="false" afterPath="$PROJECT_DIR$/benchmarker.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/engine/chess.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/chess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/engine/pieces.py" beforeDir="false" afterPath="$PROJECT_DIR$/engine/pieces.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profiler.py" beforeDir="false" afterPath="$PROJECT_DIR$/profiler.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,14 +28,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="19" />
+          <entry key="py" value="20" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="19" />
+          <entry key="Python" value="20" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -43,15 +43,15 @@
           <entry key="Python Console" value="255" />
           <entry key="chess" value="314" />
           <entry key="dummy" value="2" />
-          <entry key="py" value="8138" />
+          <entry key="py" value="8612" />
           <entry key="tests" value="121" />
-          <entry key="txt" value="143" />
+          <entry key="txt" value="224" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="145" />
-          <entry key="Python" value="8828" />
+          <entry key="PLAIN_TEXT" value="226" />
+          <entry key="Python" value="9302" />
         </counts>
       </usages-collector>
     </session>
@@ -85,10 +85,10 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/benchmarker.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="562">
-                  <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+                <state relative-caret-position="-30">
+                  <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
                   <folding>
-                    <marker date="1542642632450" expanded="true" signature="308:339" ph="..." />
+                    <marker date="1542650005062" expanded="true" signature="348:379" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -109,14 +109,29 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/engine/chess.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="482">
-                  <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+                <state relative-caret-position="207">
+                  <caret line="103" column="48" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
                   <folding>
                     <element signature="e#0#18#0" expanded="true" />
-                    <marker date="1542642316384" expanded="true" signature="1344:1778" ph="..." />
-                    <marker date="1542642316384" expanded="true" signature="2863:3298" ph="..." />
-                    <marker date="1542642316384" expanded="true" signature="4123:4344" ph="..." />
-                    <marker date="1542642316384" expanded="true" signature="5595:5598" ph="..." />
+                    <marker date="1542649602274" expanded="true" signature="1337:1771" ph="..." />
+                    <marker date="1542649602274" expanded="true" signature="2856:3291" ph="..." />
+                    <marker date="1542649602274" expanded="true" signature="4290:4510" ph="..." />
+                    <marker date="1542649602274" expanded="true" signature="5750:5753" ph="..." />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/deepProfiler.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="288">
+                  <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+                  <folding>
+                    <element signature="e#0#27#0" expanded="true" />
+                    <marker date="1542647991459" expanded="true" signature="579:580" ph="..." />
+                    <marker date="1542647991459" expanded="true" signature="579:608" ph="..." />
+                    <marker date="1542647991459" expanded="true" signature="579:610" ph="..." />
                   </folding>
                 </state>
               </provider>
@@ -126,11 +141,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/engine/pieces.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="430">
-                  <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+                <state relative-caret-position="402">
+                  <caret line="349" column="28" lean-forward="true" selection-start-line="349" selection-start-column="28" selection-end-line="349" selection-end-column="28" />
                   <folding>
                     <marker date="1542642271934" expanded="true" signature="956:965" ph="..." />
                     <marker date="1542642271934" expanded="true" signature="4647:4707" ph="..." />
@@ -139,7 +154,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/engine/util.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="320">
@@ -179,8 +194,9 @@
         <option value="$PROJECT_DIR$/help.txt" />
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$PROJECT_DIR$/engine/util.py" />
-        <option value="$PROJECT_DIR$/profiler.py" />
         <option value="$PROJECT_DIR$/engine/pieces.py" />
+        <option value="$PROJECT_DIR$/profiler.py" />
+        <option value="$PROJECT_DIR$/deepProfiler.py" />
         <option value="$PROJECT_DIR$/engine/chess.py" />
         <option value="$PROJECT_DIR$/benchmarker.py" />
       </list>
@@ -342,6 +358,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Profile Engine" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="ChessEngine" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/profiler.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Test engine" type="PythonConfigurationType" factoryName="Python">
       <module name="ChessEngine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -384,7 +421,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="profiler" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="deepProfiler" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="ChessEngine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -396,7 +433,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/profiler.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/deepProfiler.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -405,25 +442,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="pytest for deepProfiler.test" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="ChessEngine" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;deepProfiler.test&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="pytest for tests.test_answer" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
@@ -461,17 +492,18 @@
       <item itemvalue="Python.Benchmark Engine" />
       <item itemvalue="Python tests.pytest in tests.py" />
       <item itemvalue="Python.chess" />
-      <item itemvalue="Python.tests" />
+      <item itemvalue="Python.Profile Engine" />
       <item itemvalue="Python tests.pytest for tests.test_answer" />
-      <item itemvalue="Python.profiler" />
+      <item itemvalue="Python tests.pytest for deepProfiler.test" />
+      <item itemvalue="Python.deepProfiler" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.profiler" />
+        <item itemvalue="Python.deepProfiler" />
+        <item itemvalue="Python tests.pytest for deepProfiler.test" />
+        <item itemvalue="Python.Profile Engine" />
         <item itemvalue="Python.chess" />
         <item itemvalue="Python.chess" />
-        <item itemvalue="Python.tests" />
-        <item itemvalue="Python.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -500,13 +532,17 @@
       <option name="project" value="LOCAL" />
       <updated>1542455147025</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Version 2&#10;Made some easy optimizations, speed improvement ranges from around 5x to 10x.">
+      <created>1542642696811</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1542642696811</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="pytest_in_tests_py - 2018.11.06 at 14h 40m 29s.xml">
-      <configuration name="pytest in tests.py" configurationId="tests" />
-    </history-entry>
     <history-entry file="pytest_in_tests_py - 2018.11.06 at 14h 41m 33s.xml">
       <configuration name="pytest in tests.py" configurationId="tests" />
     </history-entry>
@@ -533,6 +569,9 @@
     </history-entry>
     <history-entry file="pytest_in_tests_py - 2018.11.14 at 21h 14m 30s.xml">
       <configuration name="pytest in tests.py" configurationId="tests" />
+    </history-entry>
+    <history-entry file="pytest_for_deepProfiler_test - 2018.11.19 at 18h 18m 33s.xml">
+      <configuration name="pytest for deepProfiler.test" configurationId="tests" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
@@ -564,10 +603,33 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="up" />
     <MESSAGE value="Version 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 1" />
+    <MESSAGE value="Version 2&#10;Made some easy optimizations, speed improvement ranges from around 5x to 10x." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 2&#10;Made some easy optimizations, speed improvement ranges from around 5x to 10x." />
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>(id &lt; 7) == (self.player_color == Color.WHITE)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>id &lt; 7 == (self.player_color == Color.WHITE)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>self.player_color == Color.WHITE</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.player_color</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>board.get_legal_moves()</expression-string>
         <language-id>Python</language-id>
@@ -612,14 +674,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/util.py">
+    <entry file="file://$PROJECT_DIR$/deepProfiler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="288">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
-            <marker date="1542304438747" expanded="true" signature="261:266" ph="..." />
-            <marker date="1542304438747" expanded="true" signature="377:382" ph="..." />
-            <marker date="1542304438747" expanded="true" signature="420:425" ph="..." />
+            <element signature="e#0#27#0" expanded="true" />
+            <marker date="1542647991459" expanded="true" signature="579:580" ph="..." />
+            <marker date="1542647991459" expanded="true" signature="579:608" ph="..." />
+            <marker date="1542647991459" expanded="true" signature="579:610" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/engine/pieces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="349" column="28" lean-forward="true" selection-start-line="349" selection-start-column="28" selection-end-line="349" selection-end-column="28" />
+          <folding>
+            <marker date="1542642271934" expanded="true" signature="956:965" ph="..." />
+            <marker date="1542642271934" expanded="true" signature="4647:4707" ph="..." />
           </folding>
         </state>
       </provider>
@@ -634,37 +708,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/engine/pieces.py">
+    <entry file="file://$PROJECT_DIR$/engine/util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
+        <state relative-caret-position="320">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
           <folding>
-            <marker date="1542642271934" expanded="true" signature="956:965" ph="..." />
-            <marker date="1542642271934" expanded="true" signature="4647:4707" ph="..." />
+            <marker date="1542304438747" expanded="true" signature="261:266" ph="..." />
+            <marker date="1542304438747" expanded="true" signature="377:382" ph="..." />
+            <marker date="1542304438747" expanded="true" signature="420:425" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/engine/chess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="36" column="30" lean-forward="true" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
+        <state relative-caret-position="207">
+          <caret line="103" column="48" lean-forward="true" selection-start-line="103" selection-start-column="48" selection-end-line="103" selection-end-column="48" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
-            <marker date="1542642316384" expanded="true" signature="1344:1778" ph="..." />
-            <marker date="1542642316384" expanded="true" signature="2863:3298" ph="..." />
-            <marker date="1542642316384" expanded="true" signature="4123:4344" ph="..." />
-            <marker date="1542642316384" expanded="true" signature="5595:5598" ph="..." />
+            <marker date="1542649602274" expanded="true" signature="1337:1771" ph="..." />
+            <marker date="1542649602274" expanded="true" signature="2856:3291" ph="..." />
+            <marker date="1542649602274" expanded="true" signature="4290:4510" ph="..." />
+            <marker date="1542649602274" expanded="true" signature="5750:5753" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/benchmarker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="562">
-          <caret line="38" column="22" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
+        <state relative-caret-position="-30">
+          <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
           <folding>
-            <marker date="1542642632450" expanded="true" signature="308:339" ph="..." />
+            <marker date="1542650005062" expanded="true" signature="348:379" ph="..." />
           </folding>
         </state>
       </provider>
